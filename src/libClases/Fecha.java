@@ -157,6 +157,18 @@ public class Fecha {
 	}
 	
 	
+	static public boolean mayor(Fecha f1, Fecha f2) {
+		
+		if (f1.anio*10000+f1.mes*100+f1.dia>f2.anio*10000+f2.mes*100+f2.dia)
+			
+			return true;
+		
+		else
+			
+			return false;
+	}
+	
+	
 	
 
 }

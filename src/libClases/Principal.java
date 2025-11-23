@@ -19,10 +19,9 @@ public class Principal {
 		
 		
 		f3=Fecha.pedirFecha(); //pide una fecha por teclado
-		/*
+		
 		if (f3.bisiesto() && Fecha.mayor(f2,f1))
 		System.out.print("El " + f3.getAnio() + " fue bisiesto, " + f1 + ", " + f3);
-*/
 	}
 
 }

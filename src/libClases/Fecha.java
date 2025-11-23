@@ -169,6 +169,40 @@ public class Fecha {
 	}
 	
 	
-	
+	public Object clone() {
+		
+		//return new Fecha(this);
+		Object obj=null;
+		
+		try {
+			
+		obj=super.clone(); //se llama al clone() de la clase base (Object)
+		
+		//que hace copia binaria de los atributos
+		
+		} catch(CloneNotSupportedException ex) {
+			
+		System.out.println(" no se puede duplicar");
+		
+		} 
+		
+		return obj;
+		
+		}
 
+	
+	public boolean equals(Object obj) { //true sin son iguales
+		
+		if (this == obj) return true; //si apuntan al mismo sitio son iguales
+		
+		if (obj == null) return false;
+		
+		if (getClass() != obj.getClass())//if (!(obj instanceof Cliente))	
+		return false; // si los 2 no son de la misma clase no son iguales
+		
+		Fecha c = (Fecha) obj;
+		
+		return (dia==c.dia && mes==c.mes && anio==c.anio);
+		
+		}
 }

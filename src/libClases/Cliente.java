@@ -63,6 +63,23 @@ public class Cliente {
 	public Fecha getFechaPorDefecto() { return (Fecha)fechaPorDefecto.clone(); }
 	
 	
+	//SETTERS
+	 public void setNombre(String nom) {
+		 
+		 this.nombre = nom;
+	 }
+	 
+	 public void setFechaAlta (Fecha fal) {
+		 
+		 fechaAlta.setFecha(fal);
+	 }
+	 
+	 public void setFechaPorDefecto(Fecha f) {
+		 
+		 fechaPorDefecto.setFecha(f);
+	 }
+	 
+	 
 	 
 
 }

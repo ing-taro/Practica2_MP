@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class Fecha {
 	
+	
+	//atributos
 	private int dia;
 	private int mes;
 	private int anio;
 	
 	
+	//setters
 	public void setFecha(int d, int m, int a) {
 		
 		int dmax;
@@ -39,6 +42,11 @@ public class Fecha {
 			
 			mes=m;
 			
+	}
+	
+	public void setFecha(Fecha f) {
+		
+		setFecha(f.dia, f.mes, f.anio);
 	}
 		
 	
@@ -77,6 +85,7 @@ public class Fecha {
 
 		}
 	
+	//getters
 	public int getDia() { return this.dia; }
 	
 	public int getMes() { return this.mes; }
@@ -84,6 +93,7 @@ public class Fecha {
 	public int getAnio() { return this.anio; }
 	
 	
+	//bisiesto
 	public boolean bisiesto() {
 		
 		if((this.anio % 4 == 0 & this.anio % 100 != 0) || this.anio % 400 == 0) {
@@ -96,6 +106,7 @@ public class Fecha {
 	}
 	
 	
+	//metodo ver(), para imprimir por pantalla
 	public void ver() {
 		
 		System.out.println(this/*.toString()*/);
@@ -104,6 +115,8 @@ public class Fecha {
 	
 	
 	
+	
+	//Para introducir una fecha por teclado
 	public static Fecha pedirFecha() {
 		
 		Fecha fecha = null;
@@ -122,6 +135,7 @@ public class Fecha {
 		
 		String[] tokens = cadena.split("/");
 		
+		//excepciones
 		try {
 		if (tokens.length != 3)
 			
@@ -157,6 +171,7 @@ public class Fecha {
 	}
 	
 	
+	//verificar si 1 fecha es mayor q otra
 	static public boolean mayor(Fecha f1, Fecha f2) {
 		
 		if (f1.anio*10000+f1.mes*100+f1.dia>f2.anio*10000+f2.mes*100+f2.dia)
@@ -170,7 +185,7 @@ public class Fecha {
 	
 	
 	
-		
+	//metodo clone para devolver objetos y no referencias	
 	public Object clone() {
 		
 		//return new Fecha(this);
@@ -193,7 +208,8 @@ public class Fecha {
 		}
 
 	
-	public boolean equals(Object obj) { //true sin son iguales
+	//metodo para verificar si 2 fechas son iguales
+	public boolean equals(Object obj) { 
 		
 		if (this == obj) return true; //si apuntan al mismo sitio son iguales
 		
@@ -208,6 +224,8 @@ public class Fecha {
 		
 		}
 	
+	
+	//metodo necesario para la clase Cliente
 	public Fecha diaSig() {
 		
 		Fecha fechaSig = new Fecha(this.dia,this.mes,this.anio);
@@ -246,4 +264,5 @@ public class Fecha {
 		
 		return fechaSig;
 	}
+
 }

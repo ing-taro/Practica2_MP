@@ -2,6 +2,8 @@ package libClases;
 
 public class Cliente {
 	
+	//posiblemente haya que crear un contador para el codCliente, pero como inicializa a 0 y está como final, mejor preguntar
+	
 	private final String nif; //dni del cliente (letra incluida) (NO puede cambiar)
 	
 	private final int codCliente; //codigo único (y fijo) generado por la aplicación
@@ -49,6 +51,22 @@ public class Cliente {
 	}
 	
 	
+	public Cliente(Cliente c) {
+		
+		this.nif = c.nif;
+		
+		this.nombre = c.nombre;
+		
+		this.codCliente = 0;
+		
+		this.fechaNac = (Fecha)c.fechaNac.clone();
+		
+		this.fechaAlta = (Fecha)c.fechaAlta.clone();
+	
+	}
+	
+	
+
 	//GETTERS
 	public String getNIf() { return this.nif; }
 	
@@ -60,7 +78,7 @@ public class Cliente {
 	
 	public Fecha getFechaAlta() { return (Fecha)fechaAlta.clone(); }
 	
-	public Fecha getFechaPorDefecto() { return (Fecha)fechaPorDefecto.clone(); }
+	public static Fecha getFechaPorDefecto() { return (Fecha)fechaPorDefecto.clone(); }
 	
 	
 	//SETTERS
@@ -74,10 +92,32 @@ public class Cliente {
 		 fechaAlta.setFecha(fal);
 	 }
 	 
-	 public void setFechaPorDefecto(Fecha f) {
+	 public static void setFechaPorDefecto(Fecha f) {
 		 
 		 fechaPorDefecto.setFecha(f);
 	 }
+	 
+	 
+	 //devuelve una cadena de informacion
+	 public String toString() {
+		 
+		 return nif+" "+fechaNac+": "+nombre+" ("+codCliente+" - "+fechaAlta+")";
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 //metodo ver(), para mostrar por pantalla
+	 public void ver() {
+		
+		
+	 }
+	 
+	 
 	 
 	 
 	 

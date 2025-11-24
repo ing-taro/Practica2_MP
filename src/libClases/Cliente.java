@@ -47,7 +47,22 @@ public class Cliente {
 		this.fechaAlta = (Fecha)fAlta.clone();
 		
 	}
-	 
+	
+	
+	//GETTERS
+	public String getNIf() { return this.nif; }
+	
+	public String getNombre() { return this.nombre; }
+	
+	public int getCodCliente() { return this.codCliente; }
+	
+	public Fecha getFechaNac() { return (Fecha)fechaNac.clone(); }
+	
+	public Fecha getFechaAlta() { return (Fecha)fechaAlta.clone(); }
+	
+	public Fecha getFechaPorDefecto() { return (Fecha)fechaPorDefecto.clone(); }
+	
+	
 	 
 
 }

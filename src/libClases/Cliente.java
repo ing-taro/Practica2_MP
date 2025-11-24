@@ -105,17 +105,13 @@ public class Cliente {
 	 }
 	 
 	 
-	 
-	 
-	 
-	 
-	 
-	 
 	 //metodo ver(), para mostrar por pantalla
 	 public void ver() {
-		
+		System.out.println(this); //devuelvo el objeto de la clase
 		
 	 }
+	 
+	 
 	 
 	 
 	 

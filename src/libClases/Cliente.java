@@ -113,8 +113,20 @@ public class Cliente {
 	 
 	 
 	 
+	//metodo clone para devolver objetos y no referencias	
+	public Object clone() {
+		
+		return new Cliente(this);
+		
+	}
 	 
 	 
+	//metodo para verificar igualdad
+	public boolean equals(Object o){
+			
+		return o.getClass() == Cliente.class && nif.equals(((Cliente)o).nif);
+			
+	}
 	 
 	 
 

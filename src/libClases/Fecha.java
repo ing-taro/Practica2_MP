@@ -2,7 +2,7 @@ package libClases;
 
 import java.util.Scanner;
 
-public class Fecha {
+public class Fecha implements Cloneable, Proceso{
 	
 	
 	//atributos

@@ -1,6 +1,6 @@
 package libClases;
 
-public class Cliente {
+public class Cliente implements Cloneable, Proceso{
 	
 	//posiblemente haya que crear un contador para el codCliente, pero como inicializa a 0 y está como final, mejor preguntar
 	

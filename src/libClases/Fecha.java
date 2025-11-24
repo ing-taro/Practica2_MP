@@ -169,6 +169,8 @@ public class Fecha {
 	}
 	
 	
+	
+		
 	public Object clone() {
 		
 		//return new Fecha(this);
@@ -205,4 +207,43 @@ public class Fecha {
 		return (dia==c.dia && mes==c.mes && anio==c.anio);
 		
 		}
+	
+	public Fecha diaSig() {
+		
+		Fecha fechaSig = new Fecha(this.dia,this.mes,this.anio);
+		
+		int diaMes[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+		
+	    if (bisiesto()) //si el año es bisiesto febrero tiene 29 dias
+	      diaMes[2]=29;
+
+	    fechaSig.dia=this.dia+1;
+
+	    if (fechaSig.dia>diaMes[fechaSig.mes]) {     //si al incrementar dia superamos el numero de dias de dicho mes
+	    	
+	        do{
+	        	
+	        	fechaSig.dia=fechaSig.dia-diaMes[fechaSig.mes];             //pasamos al dia del mes anterior
+	        	
+	        	fechaSig.mes++;			                //incrementamos un mes
+	        	
+	            if (fechaSig.mes>12) {                    //si al incrementar mes pasamos de 12 meses
+	            	fechaSig.mes=1;                       //pasamos al mes 1
+	            	fechaSig.anio++;                      //del año siguiente
+	            	
+	                if (fechaSig.bisiesto())              //si el año es bisiesto febrero tiene 29 dias
+	                    diaMes[2]=29;
+	                
+	                else
+	                    diaMes[2]=28;
+	                
+	            }
+	            
+	        }
+	        
+	        while(fechaSig.dia>diaMes[fechaSig.mes]);                    //hasta que el dia < diamax del mes en el q ns encontremos
+	    }
+		
+		return fechaSig;
+	}
 }

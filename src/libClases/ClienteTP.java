@@ -33,7 +33,19 @@ public class ClienteTP extends Cliente{
 	}
 	
 	
+	//getters
+	
+	public float getLimite() { return this.limiteMinutos; }
+	
+	public float geTarifa() { return this.tarifa; }
+	
+	public float getMinutos() { return this.minutosHablados; }
+	
+	public String getNac() { return this.nacionalidad; }
 
+	
+	
+	
 
 
 

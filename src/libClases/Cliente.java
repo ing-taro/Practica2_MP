@@ -68,7 +68,7 @@ public class Cliente implements Cloneable, Proceso{
 	
 
 	//GETTERS
-	public String getNIf() { return this.nif; }
+	public String getNif() { return this.nif; }
 	
 	public String getNombre() { return this.nombre; }
 	

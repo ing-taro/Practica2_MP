@@ -1,6 +1,6 @@
 package libClases;
 
-public class ClienteTP extends Cliente{
+public class ClienteTarifaPlana extends Cliente{
 	
 	//atributos
 
@@ -17,7 +17,7 @@ public class ClienteTP extends Cliente{
 	
 	//constructores
 	
-	public ClienteTP (String NIF, String nom, Fecha fnac, Fecha fAlta, int m, String nac) {
+	public ClienteTarifaPlana (String NIF, String nom, Fecha fnac, Fecha fAlta, int m, String nac) {
 		
 		super(NIF, nom, fnac, fAlta); //constructor del padre
 		
@@ -27,7 +27,7 @@ public class ClienteTP extends Cliente{
 		
 	}
 	
-	public ClienteTP (Cliente c) {
+	public ClienteTarifaPlana (Cliente c) {
 		
 		super(c);
 	}
@@ -65,6 +65,21 @@ public class ClienteTP extends Cliente{
 	}
 
 	
+	//metodo factura
+	
+	public float factura() {
+		return tarifa + ((minutosHablados - limiteMinutos) * coste);
+	}
+	
+	
+	
+	//toString
+	
+	@Override
+	public String toString() {
+		
+		return super.toString()+" "+"nacionalidad"+ factura();
+	}
 	
 	
 

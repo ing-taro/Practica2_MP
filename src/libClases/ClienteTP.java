@@ -44,6 +44,27 @@ public class ClienteTP extends Cliente{
 	public String getNac() { return this.nacionalidad; }
 
 	
+	//setters 
+	
+	public void setMinuto(float m) {
+		
+		minutosHablados = m;
+	}
+	
+	public void setNac (String n) {
+		
+		nacionalidad = n;
+	}
+	
+	
+	public void setTarifaTP(float m, float t) {
+		
+		limiteMinutos = m;
+		
+		tarifa = t;
+	}
+
+	
 	
 	
 

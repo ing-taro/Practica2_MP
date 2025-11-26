@@ -17,11 +17,11 @@ public class ClienteTarifaPlana extends Cliente{
 	
 	//constructores
 	
-	public ClienteTarifaPlana (String NIF, String nom, Fecha fnac, Fecha fAlta, int m, String nac) {
+	public ClienteTarifaPlana (String NIF, String nom, Fecha fnac, Fecha fAlta, float f, String nac) {
 		
 		super(NIF, nom, fnac, fAlta); //constructor del padre
 		
-		this.minutosHablados = m;
+		this.minutosHablados = f;
 		
 		this.nacionalidad = nac;
 		
@@ -35,13 +35,13 @@ public class ClienteTarifaPlana extends Cliente{
 	
 	//getters
 	
-	public float getLimite() { return this.limiteMinutos; }
+	public float getLimite() { return ClienteTarifaPlana.limiteMinutos; }
 	
-	public float geTarifa() { return this.tarifa; }
+	public float geTarifa() { return ClienteTarifaPlana.tarifa; }
 	
 	public float getMinutos() { return this.minutosHablados; }
 	
-	public String getNac() { return this.nacionalidad; }
+	public String getNacionalidad() { return this.nacionalidad; }
 
 	
 	//setters 
@@ -82,7 +82,18 @@ public class ClienteTarifaPlana extends Cliente{
 	}
 	
 	
+	@Override
+    public Object clone(){
+		
+        return new ClienteTarifaPlana(getNif(), getNombre(), getFechaNac(), getFechaAlta(), getMinutos(), getNacionalidad());
+        
+    }
+	
 
+	@Override
+    public boolean equals(Object o){
+        return o instanceof ClienteTarifaPlana && getNif().equals(((Cliente)o).getNif());
+    }
 
 
 

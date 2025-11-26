@@ -57,7 +57,7 @@ public class Principal {
 		c[2]=cm; cm.setNombre(c1.getNombre()); cm.setFechaAlta(f1); cm.setFPermanencia(f1);
 		
 		f1.setFecha(4,4,2004); aux=cm.getFPermanencia(); aux.setFecha(20, 20, 2020);
-		*/
+		
 		
 		c[3]=new ClienteTarifaPlana("805W","Iker", fnac2, f1, 375.09f, "Española");
 		
@@ -67,7 +67,7 @@ public class Principal {
 		
 		c[5]=ct; ct.setNombre("Pepe"); ct.setNacionalidad("India"); ct.setMinutos(500);
 		
-		//cm.ver(); ct.ver();
+		cm.ver(); ct.ver();
 		
 		ClienteTarifaPlana.setTarifa(350, 22.50f); //cambia la Tarifa Plana a 350 min x 22.50
 		
@@ -83,5 +83,7 @@ public class Principal {
 		if (c[4].equals(c3)==false) {
 		System.out.println("c[4] y c3 no son iguales (mismo dni pero distinto tipo)");
 	}
-
+	
+	*/
+	}
 }

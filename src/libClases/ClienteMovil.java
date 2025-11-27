@@ -35,20 +35,26 @@ public class ClienteMovil extends Cliente{
 	    
 	}
     
-	/*
-   public ClienteMovil(Cliente c) {
+	
+   public ClienteMovil(ClienteMovil c) {
 	   super(c);
 	   
-   	this.fechaPermanencia = (Fecha)c.fPer.clone();
+   	this.fechaPermanencia = (Fecha)fechaPermanencia.clone();
 	
-   	this.minutosHablados = c.;
+   	this.minutosHablados = c.minutosHablados;
    	
-   	this.precioMinuto = c.;
+   	this.precioMinuto = c.precioMinuto;
    	
    }
-	*/
+
    
 	//getters
+	
+	public float getMinutosHablados() { return this.minutosHablados; }
+	
+	public float gePrecio() { return this.precioMinuto; }
+	
+	public Fecha getfPermanencia() { return (Fecha)fechaPermanencia.clone(); }
 	
 	//setters
 	

@@ -52,7 +52,7 @@ public class ClienteMovil extends Cliente{
 	
 	public float getMinutosHablados() { return this.minutosHablados; }
 	
-	public float gePrecio() { return this.precioMinuto; }
+	public float getPrecio() { return this.precioMinuto; }
 	
 	public Fecha getfPermanencia() { return (Fecha)fechaPermanencia.clone(); }
 	

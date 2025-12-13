@@ -29,7 +29,7 @@ public static void main(String[] args) {
 	 System.out.println("Codigos: " + cm1.getCodCliente() +", "+ cm2.getCodCliente() + ", "
 	 + ct[0].getCodCliente() +", "+ ct[2].getCodCliente() +"\n");
 	 
-	 /*
+	 
 	 Empresa g=new Empresa(), gcopia;
 	 
 	 g.alta(cm1); g.alta(ct[0]); g.alta(ct[2]); g.alta(cm2); g.alta(ct[1]);g.alta(cm3);
@@ -68,6 +68,6 @@ public static void main(String[] args) {
 	 System.out.print("g tiene " + g.nClienteMovil() + " clientes de Tarifa Movil ");
 	 
 	 System.out.println("y " + (g.getN()-g.nClienteMovil()) + " de Tarifa Plana");
-	 */
+	 
 	}
 }

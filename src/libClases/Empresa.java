@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Empresa implements Cloneable, Proceso{
 	
-	
+	//FALTA BAJA Y FACTURA
 	
 	//atributos
 	
@@ -24,7 +24,7 @@ public class Empresa implements Cloneable, Proceso{
 	
 	//getters
 	
-	public int getn () { return this.nClientes;  }
+	public int getN () { return this.nClientes;  }
 	
 	
 	//metodos
@@ -159,11 +159,66 @@ public class Empresa implements Cloneable, Proceso{
 	}
 	
 	
-	public int baja() {
+	public void baja(String dni) {
 		
-		return 0;
-	}
+		Scanner s = new Scanner(System.in); //para introducir por pantalla
+		
+		int pos = buscarCliente(dni);
+		
+		if(pos != -1)
+			
+			for(int i = 0; i < nClientes; i++)
+				
+                clientes[i] = clientes[i+1];
+                
+            nClientes--;
+            
+            if(nClientes < clientes.length - INCREMENTO){
+            	
+                Cliente[] tmp = new Cliente[clientes.length-INCREMENTO];
+                
+                for(int i = 0; i < tmp.length; i++)
+                    tmp[i] = clientes[i];
+                
+                clientes = tmp;
+            }
+		}
+			
 	
+	public void baja() {
+		
+		Scanner s = new Scanner(System.in);
+		
+		
+		System.out.print("Introduzca nif cliente a dar de baja: ");
+		String dni = s.nextLine();
+		
+        int pos = buscarCliente(dni);
+        
+        if(pos!=-1) {
+			System.out.println(clientes[pos]);
+			System.out.println("¿Seguro que desea eliminarlo (s/n)?");
+			
+				
+			if(s.nextLine().equals("s")){
+				Cliente c = clientes[pos];
+				baja(dni);
+                System.out.println("El cliente "+c.getNombre()+" con nif "+c.getNif()+" ha sido eliminado.\n");
+                
+			}
+			
+			else
+				System.out.println("El cliente con nif "+clientes[pos].getNif()+" no se elimina");
+				
+	       }
+        
+        else {
+        	System.out.println("No se ha encontrado el cliente.");
+        	
+        }
+		
+		
+	}
 	
 	public float factura() {
 		

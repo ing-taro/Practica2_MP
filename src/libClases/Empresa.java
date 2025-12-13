@@ -29,15 +29,27 @@ public class Empresa implements Cloneable, Proceso{
 	
 	//metodos
 	
-	public float factura() {
+	//buscar un cliente
+	public int buscarCliente(String dni) {
 		
-		return 0;
+		int pos = -1;
+		
+		int i = 0;
+		
+		boolean existe = false;
+		
+		while (i<nClientes && !existe) {
+			
+			if(this.clientes[i].getNif().equals(dni)) {
+				pos = i;
+				existe = true;
+			}			
+		i++;
+		}
+		
+		return pos;
 	}
 	
-	public float descuento (int dto) {
-		
-		return 0;
-	}
 	
 	public int nClienteMovil() {
 		
@@ -53,6 +65,7 @@ public class Empresa implements Cloneable, Proceso{
 	}
 	
 	
+	
 	public int alta() {
 		
 		return 0;
@@ -61,6 +74,17 @@ public class Empresa implements Cloneable, Proceso{
 	
 	
 	public int baja() {
+		
+		return 0;
+	}
+	
+	
+	public float factura() {
+		
+		return 0;
+	}
+	
+	public float descuento (int dto) {
 		
 		return 0;
 	}

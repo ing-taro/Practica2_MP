@@ -76,10 +76,10 @@ public class ClienteTarifaPlana extends Cliente{
 	//toString
 	
 	@Override
-	public String toString() {
+    public String toString(){
 		
-		return super.toString()+" "+"nacionalidad"+ factura();
-	}
+        return super.toString()+" "+nacionalidad+" ["+limiteMinutos+" por "+tarifa+"] "+minutosHablados+" ---> "+factura();
+    }
 	
 	
 	@Override

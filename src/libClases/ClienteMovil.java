@@ -58,9 +58,60 @@ public class ClienteMovil extends Cliente{
 	
 	//setters
 	
+	void setMinutosHablados(float minHabla) { 
+		
+		minutosHablados = minHabla; 
+		
+	}
+	
+	
+	 public void setFpermanencia(Fecha fper) {
+		 
+		 fechaPermanencia.setFecha(fper);
+	 }
+	 
+	 public void setPrecioMin(float pMin) {
+		 
+		 precioMinuto = pMin;
+		 
+	 }
+	
 	
 	//metodos
-	
+	 
+	 
+	    //metodo Factura
+		public float factura() {
+			
+			return precioMinuto * minutosHablados;
+		}
+	 
+		
+		
+		//Tostring
+		@Override
+		public String toString() {
+			
+			return super.toString()+" "+fechaPermanencia+" "+minutosHablados+" x "+precioMinuto+" = "+factura();
+			
+		}	
+		
+		
+		//metodo Clone
+		@Override
+		public Object clone() {
+			
+			return new ClienteMovil(getNif(), getNombre(), getFechaNac(), getFechaAlta(), getfPermanencia(), getMinutosHablados(), getPrecio());
+		}
+			
+		
+		//metodo equals
+		@Override
+	    public boolean equals(Object o){
+	        return o instanceof ClienteMovil && getNif().equals(((Cliente)o).getNif());
+	    }
+
+	 
 	
 	
 }

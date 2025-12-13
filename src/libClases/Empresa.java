@@ -65,11 +65,97 @@ public class Empresa implements Cloneable, Proceso{
 	}
 	
 	
+	//Equivalente a altaCliente
+	public void alta(Cliente c) {
+		
+		if(c==null || buscarCliente(c.getNif())!=-1)
+			return; 
+		
+		clientes[nClientes++]=c;
+		
+		if(nClientes == clientes.length) {
+			Cliente[] tmp = new Cliente[clientes.length+INCREMENTO]; //si está lleno hay q aumentar tamaño
+			
+			for(int i = 0; i < clientes.length; i++)
+                tmp[i] = clientes[i]; //copio info
+			
+			
+			clientes = tmp;
+		}
+	}
 	
-	public int alta() {
+	
+	//equivalente a crearContrato
+	public void alta() {
+		//verificar si existe
+		Scanner s = new Scanner(System.in);
 		
-		return 0;
-		
+	    String dni;
+	    
+	    System.out.println("DNI: ");
+	    
+	    dni = s.nextLine();
+
+	    int pos=this.buscarCliente(dni); //i=pos del cliente
+
+	    
+	    if(pos!=-1) { //dar de alta al cliente
+	    	System.out.println("Ya existe un cliente con ese DNI");
+	    	System.out.println(clientes[pos]);
+	    }
+	    //si no existe pido info
+	    else {
+	        Cliente c = null;
+	        
+	        String nombre;
+	        
+	        Fecha fNac, fAlta;
+	        
+	        float minutosHablados;
+	        
+	        System.out.println("Nombre: ");
+	        nombre = s.nextLine();
+	        
+			System.out.println("Fecha de Nacimiento: ");
+			fNac = Fecha.pedirFecha();
+			
+			System.out.println("Fecha de Alta: ");
+			fAlta = Fecha.pedirFecha();
+			
+	        System.out.println("Minutos que habla al mes: ");
+	        minutosHablados = s.nextFloat();
+	        
+	        System.out.println("Indique tipo de cliente (1-Movil, 2-Tarifa Plana): ");
+	        int tipo;
+	        
+	        tipo=s.nextInt();
+	        
+	        //diferencio el tipo de contrato
+	        if(tipo==1) {
+	        	System.out.println("Precio por minuto: ");
+	        	float precio;
+	        	
+		        precio=s.nextFloat();
+	        	System.out.println("Fecha fin permanencia: ");
+	        	
+		        Fecha FPer = Fecha.pedirFecha();
+	        	c = new ClienteMovil(dni, nombre, fNac, fAlta, FPer, minutosHablados, precio);
+	        }
+	        
+	        else if (tipo==2) {
+	        	String nacionalidad;
+                System.out.print("Nacionalidad: ");
+                
+                nacionalidad = s.nextLine();
+
+                c = new ClienteTarifaPlana(dni, nombre, fNac, fAlta, minutosHablados, nacionalidad);
+	        }
+	        
+	        //lo doy de alta llamando al metodo anterior 
+	        alta(c);
+	        
+	    }
+	
 	}
 	
 	
@@ -84,9 +170,25 @@ public class Empresa implements Cloneable, Proceso{
 		return 0;
 	}
 	
-	public float descuento (int dto) {
+	public void descuento (int dto) {
 		
-		return 0;
+		float precio = 0;
+		
+		float factor = 1.0f - dto/100.0f;
+		
+		for(int i = 0; i < nClientes; i++) {
+			
+			//equivalente a typeid
+			if(clientes[i] instanceof ClienteMovil){
+				
+				ClienteMovil c = (ClienteMovil) clientes[i];
+				
+				precio = c.getPrecio() * factor;
+				
+				c.setPrecioMin(precio);
+				
+			}
+		}
 	}
 	
 	
@@ -101,6 +203,9 @@ public class Empresa implements Cloneable, Proceso{
 		
 	}
 	
+	public Object clone() {
+		
+	}
 	
 
 }

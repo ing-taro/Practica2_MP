@@ -1,7 +1,5 @@
 package libClases;
 
-import libClases.*;
-
 public class Principal {
 public static void main(String[] args) {
 	 Fecha f1=new Fecha(29,2,2001), f2= new Fecha(f1), f3=new Fecha(29,2,2004);

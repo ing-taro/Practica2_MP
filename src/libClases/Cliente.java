@@ -2,7 +2,7 @@ package libClases;
 
 public class Cliente implements Cloneable, Proceso{
 	
-	//posiblemente haya que crear un contador para el codCliente, pero como inicializa a 0 y está como final, mejor preguntar
+	private static int contador = 0;
 	
 	private final String nif; //dni del cliente (letra incluida) (NO puede cambiar)
 	
@@ -25,11 +25,11 @@ public class Cliente implements Cloneable, Proceso{
 		
 		this.nombre = nom;
 		
-		this.codCliente = 0;
-		
 		this.fechaNac = (Fecha)fNac.clone();
 		
 		this.fechaAlta = (Fecha)fAlta.clone();
+		
+		this.codCliente = contador ++;
 		
 		
 	}
@@ -42,11 +42,11 @@ public class Cliente implements Cloneable, Proceso{
 		
 		this.nombre = nom;
 		
-		this.codCliente = 0;
-		
 		this.fechaNac = (Fecha)fNac.clone();
 		
 		this.fechaAlta = (Fecha)fAlta.clone();
+		
+		this.codCliente = contador ++;
 		
 	}
 	
@@ -126,6 +126,11 @@ public class Cliente implements Cloneable, Proceso{
 			
 		return o.getClass() == Cliente.class && nif.equals(((Cliente)o).nif);
 			
+	}
+
+	//lo creo para poder usarlo en el resto de clases
+	public float factura() {
+		return 0;
 	}
 	 
 	

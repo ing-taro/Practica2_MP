@@ -167,7 +167,7 @@ public class Empresa implements Cloneable, Proceso{
 		
 		if(pos != -1)
 			
-			for(int i = 0; i < nClientes; i++)
+			for(int i = pos; i < nClientes; i++)
 				
                 clientes[i] = clientes[i+1];
                 
@@ -222,7 +222,13 @@ public class Empresa implements Cloneable, Proceso{
 	
 	public float factura() {
 		
-		return 0;
+		float total=0;
+		
+		for(int i=0;i<nClientes;i++) {
+			total=total+clientes[i].factura();
+		}
+		
+		return total;
 	}
 	
 	public void descuento (int dto) {

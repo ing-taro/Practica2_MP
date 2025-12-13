@@ -199,8 +199,14 @@ public class Empresa implements Cloneable, Proceso{
 		
 	}
 	
-	public String toString () {
+	public String toString() {
 		
+		String texto = "";
+		
+		for(int i = 0; i < nClientes; i++)
+            texto = texto + clientes[i]+"\n";
+        
+        return texto;
 	}
 	
 	public Object clone() {

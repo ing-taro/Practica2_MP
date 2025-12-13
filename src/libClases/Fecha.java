@@ -109,7 +109,7 @@ public class Fecha implements Cloneable, Proceso{
 	//metodo ver(), para imprimir por pantalla
 	public void ver() {
 		
-		System.out.println(this/*.toString()*/);
+		System.out.println(this);
 		
 		}
 	

@@ -164,7 +164,7 @@ public class Fecha implements Cloneable, Proceso{
 		} 
 		while(!valida);
 		
-		sc.close();
+		//sc.close();
 		
 		return fecha;
 		

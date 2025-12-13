@@ -161,7 +161,7 @@ public class Empresa implements Cloneable, Proceso{
 	
 	public void baja(String dni) {
 		
-		Scanner s = new Scanner(System.in); //para introducir por pantalla
+		//Scanner s = new Scanner(System.in); //para introducir por pantalla
 		
 		int pos = buscarCliente(dni);
 		

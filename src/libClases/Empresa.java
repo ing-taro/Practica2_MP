@@ -211,6 +211,17 @@ public class Empresa implements Cloneable, Proceso{
 	
 	public Object clone() {
 		
+		Empresa obj=null;
+		
+		try{
+            obj= (Empresa)super.clone();
+            obj.clientes = clientes.clone();
+            for(int i = 0; i < nClientes; i++)
+                obj.clientes[i] = (Cliente)clientes[i].clone();
+        }catch(CloneNotSupportedException ex){
+        	System.out.println("No se ha podido clonar");
+        }
+		return (Object)obj;
 	}
 	
 

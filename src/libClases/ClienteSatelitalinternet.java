@@ -88,6 +88,10 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 		 }
 		
 		 
-		 
+		//equals
+			@Override
+			public boolean equals(Object o){
+					return o instanceof ClienteSatelitalinternet && getNif().equals(((ClienteTarifaPlana)o).getNif());
+			}
 		
 }

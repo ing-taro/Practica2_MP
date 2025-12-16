@@ -253,6 +253,49 @@ public class Empresa implements Cloneable, Proceso{
 	}
 	
 	
+	public void totalMayorFacturaPorTipo() {
+	   
+	    int cMovil = 0, cInternet = 0, cTarifa = 0;
+	    
+	    float totalMovil = 0, totalInternet = 0, totalTarifa = 0;
+
+	    for(int i = 0; i < nClientes; i++) {
+	        Cliente c = clientes[i];
+
+	        if (c instanceof ClienteInternetMovil) {
+	            cInternet++;
+	            totalInternet += ((ClienteInternetMovil) c).sumaFacturas();
+	        }
+
+	        else if (c instanceof ClienteMovil) {
+	            cMovil++;
+	            totalMovil += ((ClienteMovil) c).factura();
+	        }
+	        
+	        else if (c instanceof ClienteTarifaPlana) {
+	            cTarifa++;
+	            totalTarifa += ((ClienteTarifaPlana) c).factura();
+	        }
+	    }
+
+
+	    System.out.println("Contratos Movil: " + cMovil);
+	    System.out.println("Contratos Internet: " + cInternet);
+	    System.out.println("Contratos Tarifa Plana: " + cTarifa);
+
+
+	    if (totalInternet >= totalMovil && totalInternet >= totalTarifa) {
+	        System.out.println("El mayor total por tipo de contrato es el de ClienteInternetMovil con un acumulado de " + totalInternet);
+	    } 
+	    else if (totalMovil >= totalInternet && totalMovil >= totalTarifa) {
+	        System.out.println("El mayor total por tipo de contrato es el de ClienteMovil con un acumulado de " + totalMovil);
+	    } 
+	    else {
+	        System.out.println("El mayor total por tipo de contrato es el de ClienteTarifaPlana con un acumulado de " + totalTarifa);
+	    }
+	}
+	
+	
 	@Override
 	public void ver() {
 		
@@ -285,5 +328,68 @@ public class Empresa implements Cloneable, Proceso{
 		return (Object)obj;
 	}
 	
+	
+	
+	public void clienteMasLongevo() {
+		
+		int maxi = -1;
+		
+		int cuenta = 0;
+		
+		String dni = " ";
+		
+		String nombre = " ";
+		
+		for(int i = 0; i < nClientes; i++) {
+			
+			
+			if(clientes[i] instanceof ClienteMovil) {
+				
+				ClienteMovil cm = (ClienteMovil) clientes[i];
+				
+				cuenta = (cm.getfPermanencia().getAnio() * 1000 + cm.getfPermanencia().getMes() * 10 + cm.getFechaAlta().getDia()) + (cm.getFechaAlta().getAnio() * 1000 + cm.getFechaAlta().getDia());
+						
+				
+			
+			if(cuenta > maxi) {
+				maxi = cuenta;
+				
+				dni = cm.getNif();
+				
+				nombre = cm.getNombre();
+				
+			}
+		}
+		
+	    }
+		
+		System.out.println("Cliente Movil con mayor antiguedad: "+nombre+" con dni: " +dni);
+		
+	}
+	
+	
+	
+	public void clientesComun(Empresa g) {
+	
+		boolean encontrado = false;
+		
+		for (int i = 0; i < nClientes; i++) {
+			
+			
+			for (int j = 0; j < g.nClientes; j++) {
+			
+				
+				if (this.clientes[i].getNif().equals(g.clientes[j].getNif())) {
+					
+					System.out.println("El cliente con dni: " + this.clientes[i].getNif()+ " esta en ambas empresas");
+					
+					encontrado = true;
+				}
+				
+			}
+			
+		}
+		
+	}
 
 }

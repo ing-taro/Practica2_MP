@@ -65,5 +65,21 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 		}
 		
 		
+		//factura total
+		public float facturaInternetPlana() {
+			
+			float exceso = 0;
+			
+			if(this.gigas > limiteGigas) {
+				
+				exceso = this.gigas - limiteGigas;
+			}
+			
+			return tarifaBase + (exceso * gigaExtra);
+		}
+		
+		
+		
+		
 		
 }

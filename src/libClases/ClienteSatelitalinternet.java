@@ -94,4 +94,12 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 					return o instanceof ClienteSatelitalinternet && getNif().equals(((ClienteTarifaPlana)o).getNif());
 			}
 		
+			
+			
+			//tostring
+			
+			public String toString() {
+				
+				return super.toString() + " " + tarifaBase + " + " + gigas + " X " + gigaExtra + " = " + facturaInternetPlana();
+			}
 }

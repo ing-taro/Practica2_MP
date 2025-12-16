@@ -80,6 +80,14 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 		
 		
 		
+		//ver
 		
+		 public void ver() {
+			System.out.println(this); //devuelvo el objeto de la clase
+			
+		 }
+		
+		 
+		 
 		
 }

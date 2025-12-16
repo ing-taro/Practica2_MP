@@ -50,4 +50,20 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 			
 			 this.gigas = gig;
 		}
+		
+		
+		//metodos
+		
+		
+		
+		
+		//clone
+		
+		public Object clone() {
+			
+			return new ClienteSatelitalinternet(getNif(), getNombre(), getFechaNac(), getFechaAlta(), getMinutos(),getNacionalidad(), getGB());
+		}
+		
+		
+		
 }

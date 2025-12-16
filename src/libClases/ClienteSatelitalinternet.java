@@ -42,5 +42,12 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 		
 		public float getPrecio() { return ClienteSatelitalinternet.tarifaBase; }
 		
-
+		
+		
+		//setters
+		
+		public void setGB(float gig) { 
+			
+			 this.gigas = gig;
+		}
 }

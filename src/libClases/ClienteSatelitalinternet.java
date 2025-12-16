@@ -12,6 +12,28 @@ public class ClienteSatelitalinternet extends ClienteTarifaPlana{
 		
 		private static float gigaExtra = 0.10f; //precio giga extra
 		
+		//constructores
+		
+		public ClienteSatelitalinternet(String nif, String  nombre,Fecha fNac,Fecha fAlta,float  minutos,String nacionalidad, float gigas) {
+			
+			super(nif, nombre, fNac, fAlta, minutos, nacionalidad);
+			
+			this.gigas = gigas;
+		}
+		
+		public ClienteSatelitalinternet(String nif, String  nombre,Fecha fNac,float  minutos,String nacionalidad, float gigas) {
+			
+			super(nif,nombre, fNac, getFechaPorDefecto(), minutos, nacionalidad);
+			
+			this.gigas = gigas;
+		}
+		
+		
+		public ClienteSatelitalinternet (ClienteTarifaPlana c) {
+			
+			super(c);
+		}
+		
 		
 
 }

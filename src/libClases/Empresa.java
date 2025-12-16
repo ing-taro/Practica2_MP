@@ -329,8 +329,7 @@ public class Empresa implements Cloneable, Proceso{
 	}
 	
 	
-	
-	public void clienteMasLongevo() {
+public void clienteMasLongevo() {
 		
 		int maxi = -1;
 		
@@ -366,30 +365,7 @@ public class Empresa implements Cloneable, Proceso{
 		System.out.println("Cliente Movil con mayor antiguedad: "+nombre+" con dni: " +dni);
 		
 	}
-	
-	
-	
-	public void clientesComun(Empresa g) {
-	
-		boolean encontrado = false;
-		
-		for (int i = 0; i < nClientes; i++) {
-			
-			
-			for (int j = 0; j < g.nClientes; j++) {
-			
-				
-				if (this.clientes[i].getNif().equals(g.clientes[j].getNif())) {
-					
-					System.out.println("El cliente con dni: " + this.clientes[i].getNif()+ " esta en ambas empresas");
-					
-					encontrado = true;
-				}
-				
-			}
-			
-		}
-		
-	}
+
+
 
 }
